@@ -9,7 +9,7 @@ class Current extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['sensor_id', 'x_axis', 'y_axis', 'z_axis'];
+    protected $fillable = ['sensor_id', 'volt', 'ampere', 'power'];
 
     public function sensor()
     {
