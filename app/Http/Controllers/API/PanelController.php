@@ -61,11 +61,12 @@ class PanelController extends Controller
     public function sensor_monitoring(Request $request, Sensor $sensor)
     {
         if (!$request->has('sensor')) {
-            return ApiFormatter::createApi(400, 'Failed fetching data');
+            $data = Sensor::where('plant_name', $sensor->plant_name)->with('temperature')->get();
+        } else {
+            $numsensor = $request->input('sensor') - 1;
+            $plant = Sensor::where('plant_name', $sensor->plant_name)->get()[$numsensor];
+            $data = Temperature::where('sensor_id', $plant->id)->take(200)->latest()->get();
         }
-        $numsensor = $request->input('sensor') - 1;
-        $plant = Sensor::where('plant_name', $sensor->plant_name)->get()[$numsensor];
-        $data = Temperature::where('sensor_id', $plant->id)->take(200)->latest()->get();
 
         if (!$data) {
             return ApiFormatter::createApi(400, 'Failed fetching data');
