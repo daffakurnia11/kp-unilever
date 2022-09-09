@@ -1,7 +1,6 @@
 <?php
 
-use App\Http\Controllers\API\MotorController;
-use App\Http\Controllers\API\PanelController;
+use App\Http\Controllers\APIController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -16,20 +15,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('panel_sensor', [PanelController::class, 'index']);
-Route::get('panel_sensor/{sensor:plant_name}', [PanelController::class, 'show']);
-Route::get('panel_sensor/{sensor:plant_name}/temperature', [PanelController::class, 'get_temperature']);
-Route::post('panel_sensor/temperature', [PanelController::class, 'post_temperature']);
-Route::get('panel_sensor/{sensor:plant_name}/monitoring', [PanelController::class, 'sensor_monitoring']);
+Route::get('/{sensor:plant_name}', [APIController::class, 'show']);
+Route::get('/{sensor:plant_name}/set_point', [APIController::class, 'set_point']);
+Route::get('/{sensor:plant_name}/temperature', [APIController::class, 'get_temperature']);
+Route::get('/{sensor:plant_name}/vibration', [APIController::class, 'get_vibration']);
+Route::get('/{sensor:plant_name}/current', [APIController::class, 'get_current']);
 
-Route::get('motor_sensor', [MotorController::class, 'index']);
-Route::get('motor_sensor/{sensor:plant_name}', [MotorController::class, 'show']);
-Route::get('motor_sensor/{sensor:plant_name}/temperature', [MotorController::class, 'get_temperature']);
-Route::post('motor_sensor/temperature', [MotorController::class, 'post_temperature']);
-Route::get('motor_sensor/{sensor:plant_name}/vibration', [MotorController::class, 'get_vibration']);
-Route::post('motor_sensor/vibration', [MotorController::class, 'post_vibration']);
-Route::get('motor_sensor/{sensor:plant_name}/current', [MotorController::class, 'get_current']);
-Route::post('motor_sensor/current', [MotorController::class, 'post_current']);
+Route::post('temperature', [APIController::class, 'post_temperature']);
+Route::post('vibration', [APIController::class, 'post_vibration']);
+Route::post('current', [APIController::class, 'post_current']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
