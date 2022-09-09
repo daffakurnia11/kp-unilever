@@ -10,4 +10,9 @@ class MonitoringController extends Controller
     {
         return view('monitoring.panel');
     }
+
+    public function motor_monitoring()
+    {
+        return view('monitoring.motor');
+    }
 }

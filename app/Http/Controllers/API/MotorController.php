@@ -8,6 +8,7 @@ use App\Models\Current;
 use App\Models\Sensor;
 use App\Models\Temperature;
 use App\Models\Vibration;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -61,7 +62,9 @@ class MotorController extends Controller
 
     public function get_vibration(Sensor $sensor)
     {
-        $data = Sensor::where('sensor', 'adxl')->where('plant_name', $sensor->plant_name)->with('vibration')->get();
+        $data = Sensor::where('sensor', 'adxl')->where('plant_name', $sensor->plant_name)->with('vibration', function ($data) {
+            $data->where('created_at', '>=', Carbon::create(2022, 8, 29, 15, 45, 00, 7)->subMinutes(30));
+        })->get();
 
         if (!$data) {
             return ApiFormatter::createApi(400, 'Failed fetching data');

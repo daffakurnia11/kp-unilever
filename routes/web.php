@@ -20,5 +20,6 @@ Route::get('/', function () {
 });
 
 Route::prefix('monitoring')->controller(MonitoringController::class)->group(function () {
-    Route::get('/panel-1', 'panel_monitoring');
+    Route::get('/Panel1', 'panel_monitoring');
+    Route::get('/Motor1', 'motor_monitoring');
 });

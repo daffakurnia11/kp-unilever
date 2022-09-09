@@ -19,14 +19,14 @@
       </a>
     </li>
     <li class="menu-label">Panel Monitoring</li>
-    <li class="{{ Request::is('monitoring/panel-1') ? 'mm-active' : '' }}">
-      <a class="has-arrow" aria-expanded="true" href="/monitoring/panel-1">
+    <li class="{{ Request::is('monitoring/Panel1') ? 'mm-active' : '' }}">
+      <a class="has-arrow" aria-expanded="true" href="/monitoring/Panel1">
         <div class="parent-icon">
           <i class="bi bi-circle"></i>
         </div>
-        <div class="menu-title">Panel 1</div>
+        <div class="menu-title">Panel1</div>
       </a>
-      <ul class="mm-collapse {{ Request::is('monitoring/panel-1**') ? 'mm-show' : '' }}" style="">
+      <ul class="mm-collapse {{ Request::is('monitoring/Panel1**') ? 'mm-show' : '' }}" style="">
         <li> 
           <a href="javascript:;">
             <i class="bi bi-arrow-right-short"></i>
@@ -48,13 +48,33 @@
       </ul>
     </li>
     <li class="menu-label">Motor Monitoring</li>
-    <li>
-      <a href="/monitoring/motor">
+    <li class="{{ Request::is('monitoring/Motor1') ? 'mm-active' : '' }}">
+      <a class="has-arrow" aria-expanded="true" href="/monitoring/Motor1">
         <div class="parent-icon">
           <i class="bi bi-circle"></i>
         </div>
-        <div class="menu-title">Motor 1</div>
+        <div class="menu-title">Motor1</div>
       </a>
+      <ul class="mm-collapse {{ Request::is('monitoring/Motor1**') ? 'mm-show' : '' }}" style="">
+        <li> 
+          <a href="javascript:;">
+            <i class="bi bi-arrow-right-short"></i>
+            First Sensor
+          </a>
+        </li>
+        <li> 
+          <a href="javascript:;">
+            <i class="bi bi-arrow-right-short"></i>
+            Second Sensor
+          </a>
+        </li>
+        <li> 
+          <a href="javascript:;">
+            <i class="bi bi-arrow-right-short"></i>
+            Third Sensor
+          </a>
+        </li>
+      </ul>
     </li>
   </ul>
   <!--end navigation-->
