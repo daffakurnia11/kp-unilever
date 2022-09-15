@@ -39,7 +39,7 @@
 
 @section('javascript')
 <script>
-  const url = 'http://127.0.0.1:8000';
+  const url = 'http://128.199.87.189';
 
   var chartOption = {
     chart: {
@@ -92,7 +92,7 @@
 
       $.ajax({
         type: "GET",
-        url: url + '/api/panel_sensor/Panel1/monitoring',
+        url: url + '/api/Panel1/temperature?filter=5&unit=minutes',
         dataType: 'JSON',
         success: function (resp) {
           resp.data[0].temperature.forEach(data => {
@@ -133,7 +133,7 @@
 
       $.ajax({
         type: "GET",
-        url: url + '/api/panel_sensor/Panel1/monitoring',
+        url: url + '/api/Panel1/temperature?filter=5&unit=minutes',
         dataType: 'JSON',
         success: function (resp) {
           resp.data[0].temperature.forEach(data => {

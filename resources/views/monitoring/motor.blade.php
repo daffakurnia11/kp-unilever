@@ -88,7 +88,7 @@
 
 @section('javascript')
 <script>
-  const url = 'http://192.168.137.109/kp-unilever/public';
+  const url = 'http://128.199.87.189';
 
   var chartOption = {
     chart: {
@@ -155,7 +155,7 @@
 
       $.ajax({
         type: "GET",
-        url: url + '/api/Motor1/temperature?filter=30&unit=minutes',
+        url: url + '/api/Motor1/temperature?filter=5&unit=minutes',
         dataType: 'JSON',
         success: function (resp) {
           resp.data[0].temperature.forEach(data => {
@@ -192,7 +192,7 @@
 
       $.ajax({
         type: "GET",
-        url: url + '/api/Motor1/vibration?filter=30&unit=minutes',
+        url: url + '/api/Motor1/vibration?filter=5&unit=minutes',
         dataType: 'JSON',
         success: function (resp) {
           resp.data[0].vibration.forEach(data => {
@@ -244,10 +244,9 @@
 
       $.ajax({
         type: "GET",
-        url: url + '/api/Motor1/current?filter=30&unit=minutes',
+        url: url + '/api/Motor1/current?filter=5&unit=minutes',
         dataType: 'JSON',
         success: function (resp) {
-          console.log(resp)
           resp.data[0].current.forEach(data => {
             let time = moment(data.created_at).format("MMM, DD YYYY - HH:mm:ss");
             let volt = {x: time, y: data.volt};
