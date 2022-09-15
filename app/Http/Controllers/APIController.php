@@ -40,12 +40,12 @@ class APIController extends Controller
                 if ($request->unit == 'minutes') {
                     $data = Sensor::where('plant_name', $sensor->plant_name)->where('sensor', 'mlx')->with('temperature', function ($data) {
                         global $request;
-                        $data->where('created_at', '<=', Carbon::now()->subMinutes($request->filter))->get();
+                        $data->where('created_at', '>=', Carbon::now()->subMinutes($request->filter));
                     })->get();
                 } else {
                     $data = Sensor::where('plant_name', $sensor->plant_name)->where('sensor', 'mlx')->with('temperature', function ($data) {
                         global $request;
-                        $data->where('created_at', '<=', Carbon::now()->subHours($request->filter))->get();
+                        $data->where('created_at', '>=', Carbon::now()->subHours($request->filter));
                     })->get();
                 }
             } else {
@@ -56,12 +56,12 @@ class APIController extends Controller
                 if ($request->unit == 'minutes') {
                     $data = Sensor::where('plant_name', $sensor->plant_name)->with('temperature', function ($data) {
                         global $request;
-                        $data->where('created_at', '<=', Carbon::now()->subMinutes($request->filter))->get();
+                        $data->where('created_at', '>=', Carbon::now()->subMinutes(1));
                     })->get();
                 } else {
                     $data = Sensor::where('plant_name', $sensor->plant_name)->with('temperature', function ($data) {
                         global $request;
-                        $data->where('created_at', '<=', Carbon::now()->subHours($request->filter))->get();
+                        $data->where('created_at', '>=', Carbon::now()->subHours($request->filter));
                     })->get();
                 }
             } else {
@@ -80,12 +80,12 @@ class APIController extends Controller
                 if ($request->unit == 'minutes') {
                     $data = Sensor::where('plant_name', $sensor->plant_name)->where('sensor', 'adxl')->with('vibration', function ($data) {
                         global $request;
-                        $data->where('created_at', '<=', Carbon::now()->subMinutes($request->filter))->get();
+                        $data->where('created_at', '>=', Carbon::now()->subMinutes($request->filter));
                     })->get();
                 } else {
                     $data = Sensor::where('plant_name', $sensor->plant_name)->where('sensor', 'adxl')->with('vibration', function ($data) {
                         global $request;
-                        $data->where('created_at', '<=', Carbon::now()->subHours($request->filter))->get();
+                        $data->where('created_at', '>=', Carbon::now()->subHours($request->filter));
                     })->get();
                 }
             } else {
@@ -104,12 +104,12 @@ class APIController extends Controller
                 if ($request->unit == 'minutes') {
                     $data = Sensor::where('plant_name', $sensor->plant_name)->where('sensor', 'pzem')->with('current', function ($data) {
                         global $request;
-                        $data->where('created_at', '<=', Carbon::now()->subMinutes($request->filter))->get();
+                        $data->where('created_at', '>=', Carbon::now()->subMinutes($request->filter));
                     })->get();
                 } else {
                     $data = Sensor::where('plant_name', $sensor->plant_name)->where('sensor', 'pzem')->with('current', function ($data) {
                         global $request;
-                        $data->where('created_at', '<=', Carbon::now()->subHours($request->filter))->get();
+                        $data->where('created_at', '>=', Carbon::now()->subHours($request->filter));
                     })->get();
                 }
             } else {
