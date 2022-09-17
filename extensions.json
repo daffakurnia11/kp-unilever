@@ -1,0 +1,15 @@
+{
+	"recommendations": [
+    "formulahendry.auto-rename-tag",
+		"ryannaddy.laravel-artisan",
+		"onecentlin.laravel-blade",
+		"austenc.laravel-blade-spacer",
+		"codingyu.laravel-goto-view",
+		"onecentlin.laravel5-snippets",
+		"vscode-icons-team.vscode-icons",
+		"esbenp.prettier-vscode",
+		"MehediDracula.php-namespace-resolver",
+		"bmewburn.vscode-intelephense-client",
+		"glenn2223.live-sass"
+	]
+}
